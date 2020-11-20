@@ -1,0 +1,57 @@
+<body>
+  <div class="cotn_principal" >
+    <div class="cont_centrar">
+      <div class="cont_login">
+        <div class="cont_info_log_sign_up">
+          <div class="col_md_login">
+            <div class="cont_ba_opcitiy">
+              <h2>LOGIN</h2>
+              <p>እንኳን ወደ ለሁሉ ክፍያ በሰላም መጡ</p>
+              <button class="btn_login" (click)="cambiar_login()">LOGIN</button>
+            </div>
+          </div>
+          <div class="col_md_sign_up">
+            <div class="cont_ba_opcitiy">
+              <h2>SIGN UP</h2>
+              <p>Please sign up here</p>
+              <button class="btn_sign_up" (click)="cambiar_sign_up()">SIGN UP</button>
+            </div>
+          </div>
+        </div>
+        <div class="cont_back_info">
+          <div class="cont_img_back_grey"> <img src="./../assets/images/1.jpg" alt="" /> </div>
+        </div>
+        <div class="cont_forms" >
+         <div class="cont_img_back_"> <img src="./../assets/images/1.jpg" alt="" /> </div>
+         <div > 
+            
+            <form id="cont_form_login"  (ngSubmit)= "onSubmit(signInForm)" #signInForm="ngForm">
+              <a href="#" (click)="ocultar_login_sign_up()" ><i class="material-icons">X</i></a>
+              <h2>LOGIN</h2>
+              <input type="email" type="Phone" name = "Phone" name="email" placeholder="Email" required autofocus ngModel />
+              <input type="password" name="password" placeholder="Password" required ngModel />
+              <button class="btn_login"   type="submit">LOGIN</button>
+            </form>
+            
+          </div>
+          <div id="cont_form_sign_up"> <a href="#" (click)="ocultar_login_sign_up()"><i class="material-icons">X</i></a>
+            <h2>SIGN UP</h2>
+            <input type="text" placeholder="First Name" />
+            <input type="text" placeholder="Middle Name" />
+            <input type="text" placeholder="Last Name" />
+            <input type="text" placeholder="Birth Day" />
+            <input type="text" placeholder="Nationality" />
+            <input type="text" placeholder="Email" />
+            <input type="text" placeholder="Phone Number" />
+            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Confirm Password" />
+            <button class="btn_sign_up" (click)="cambiar_sign_up()">SIGN UP</button>
+          </div>
+        </div>
+        <div class="extra-links" style="width: 30%; float: left; height: 10%;">
+          <a href="/src/app/forgetpassword/forgetpassword" routerLink="/forgotpassword" class="btn-reset" role="button">RESET PASSWORD</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  </body>

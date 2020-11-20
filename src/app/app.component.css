@@ -1,0 +1,12 @@
+#app{
+    min-width: 100vw;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-color: lightgray;
+    background-position-y: 70px;
+    background-position-x: 90px;
+    background-image: url(src/assets/images/image_2020-11-13_15-21-37.png);
+}
+
+
+
