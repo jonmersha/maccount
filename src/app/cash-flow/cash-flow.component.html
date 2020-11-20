@@ -12,11 +12,27 @@
               <h4 class="my-0 font-weight-normal">Cash Deposit</h4>
             </div>
             <div class="card-body">
-              <h1 class="card-title pricing-card-title">ETB0 <small class="text-muted">/ mo</small></h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>Cash deposit</li>
-              </ul>
-              <a href="/src/app/cashdeposit/cashdeposit" routerLink="/cashdeposit" class="btn btn-lg btn-block btn-primary" role="button">Cash Deposit</a>
+              <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input id="code" name="agentcode" placeholder="Insert Agent Code" class="form-control" required="required" type="text">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input id="check" name="check Info" placeholder="Info check" class="form-control" required="required" type="text" document. button. disabled = true.>
+                  </div>
+                  </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <textarea id="display" name="display" placeholder= "Discription"cols="40" rows="5" class="form-control" document. button. disabled = true.></textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input id="amount" name="amount" placeholder="Amount to Deposit" class="form-control" required="required" type="text">
+                    </div>
+                  
+                </div>
+                               
+            </form>
+              <a href="/src/app/cashdeposit/cashdeposit" routerLink="/cashdeposit" class="btn btn-lg btn-block btn-primary" role="button">Send Request</a>
             </div>
           </div>
           <div class="card mb-4 shadow-sm">
@@ -24,12 +40,27 @@
               <h4 class="my-0 font-weight-normal">Cash Withdraw</h4>
             </div>
             <div class="card-body">
-              <h1 class="card-title pricing-card-title">ETB15 <small class="text-muted">/ mo</small></h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                
-                <li>Cash withdraw</li>
-              </ul>
-              <a href="/src/app/cashwithdraw/cashwithdraw" routerLink="/cashwithdraw" class="btn btn-lg btn-block btn-primary" role="button">Cash Withdraw</a>
+              <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input id="code" name="agentcode" placeholder="Insert Agent Code" class="form-control" required="required" type="text">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input id="check" name="check Info" placeholder="Info check" class="form-control" required="required" type="text" document. button. disabled = true>
+                  </div>
+                  </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <textarea id="display" name="display" placeholder= "Discription"cols="40" rows="5" class="form-control" document. button. disabled = true.></textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input id="amount" name="amount" placeholder="Amount to Deposit" class="form-control" required="required" type="text">
+                    </div>
+                  
+                </div>
+                               
+            </form>
+              <a href="/src/app/cashwithdraw/cashwithdraw" routerLink="/cashwithdraw" class="btn btn-lg btn-block btn-primary" role="button">Send Request</a>
             </div>
           </div>
         </div>

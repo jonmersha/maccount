@@ -48,10 +48,7 @@ export class AuthenticationService {
     this.router.navigate([''])
   }
 
-  register(user){
-  
-    return this.IsAuthenticated = false;
-  }
+
 
   //signUp():any{        
    //   this.http.post<Customer>('https://jsonplaceholder.typicode.com/posts',{ title: 'Angular POST Request Example' }).subscribe(data => {
