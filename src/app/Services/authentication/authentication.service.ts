@@ -1,30 +1,35 @@
 // import { registerLocaleData } from '@angular/common';
-// import { HttpClient } from '@angular/common/http';
 // import { Route } from '@angular/compiler/src/core';
 // import { Injectable } from '@angular/core';
 // import { Router } from '@angular/router';
-// import { Customer } from '../model/customer';
-// import { SignInData } from '../model/signInData';
-
-
+// import { Observable } from 'rxjs';
+// import { Customer } from 'src/app/model/customer';
+// import { SignInData } from 'src/app/model/signInData';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
+// const httpOptions = {
+//   headers: new HttpHeaders({
+//   'Content-Type': 'application/json'})
+// }
 
 // @Injectable({
 //   providedIn: 'root'
 // })
 // export class AuthenticationService {
-
-//   private readonly mockedUser = new SignInData('salemtew16@yahoo.com', '123456');
+//   ServerUrl:string = 'https://hullupay.herokuapp.com/login';
+//   private readonly mockedUser = this.getUser();
 //   IsAuthenticated = false;
 //   customer: Customer;
-//   isUsernameValid: any;
   
- 
-//   constructor(private router: Router) { }
-
+//   constructor(private router: Router,private http:HttpClient) { }
+// // Get Users
+//  getUser():Observable<SignInData[]> {
+//    return this.http.get<SignInData[]>(this.ServerUrl);
+  
+//   } 
 //   authenticate(signInData: SignInData): boolean {
 //     if(this.checkCreadentials(signInData)){
 //       this.IsAuthenticated =true;
-//       this.router.navigate(['home'])
+//       this.router.navigate(['admin'])
 //       return true;
 //     }
 //     this.IsAuthenticated = false;
@@ -43,16 +48,22 @@
 //   private checkPassword(password: string): boolean{
 //     return password === this.mockedUser.getPassword();
 //   }
-
+//   getEmail():string
+//   {
+//     return;
+//   }
 //   logout(){
 //     this.IsAuthenticated = false;
 //     this.router.navigate([''])
 //   }
 
-
+//   register(user){
+  
+//     return this.IsAuthenticated = false;
+//   }
 
 //   //signUp():any{        
-//    //   this.http.post<Customer>('https://jsonplaceholder.typicode.com/posts',{ title: 'Angular POST Request Example' }).subscribe(data => {
+//    //   this.http.post<Customer>('https://jsonplaceholder.typicode.com/posts', { title: 'Angular POST Request Example' }).subscribe(data => {
 //      //     this.customer = data;
 //      // })
 //    //return Customer;

@@ -1,5 +1,32 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <!-- *ngIf="authenticationService.IsAuthenticated" -->
+  <a class="navbar-brand" routerLink="/home">HulluPay</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarshullupay" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="#navbarshullupay">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/transfer">Transfer</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>Cash Flow</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/payment">Payment</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>TopUp</a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+
+
 <div class="container" style="width: 40%">
-    <div class="hullupay-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <div class="hullupay-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"><br><br>
         <h1 class="display-4">TopUp</h1>
         <p class="lead">See all Activities Here</p>
       </div>

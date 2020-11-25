@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { AuthGuard } from './gards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from '../app/login/login.component';
@@ -26,37 +27,35 @@ import { ArilinesticketComponent } from './arilinesticket/arilinesticket.compone
 import { ShopsComponent } from './shops/shops.component';
 import { RechargeComponent } from './recharge/recharge.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
-import { MainpageComponent } from './mainpage/mainpage.component';
-
-
+//import { MainpageComponent } from './mainpage/mainpage.component';
 
 
 const routes: Routes = [
-  {path: 'home', component:HomeComponent, canActivate: [AuthGuard]},
+  {path: 'home', component:HomeComponent, canActivate:[AuthGuard]},
   {path:'', component: LoginComponent},
-  {path: 'cash-flow', component:CashFlowComponent,canActivate:[AuthGuard]},
-  {path: 'payment', component:PaymentComponent,canActivate:[AuthGuard]},
-  {path: 'transfer', component:TransferComponent,canActivate:[AuthGuard]},
-  {path: 'topup', component:TopupComponent,canActivate:[AuthGuard]},
-  {path: 'b2b-trans', component:B2bTransComponent,canActivate:[AuthGuard]},
-  {path: 'b2w-trans', component:B2wTransComponent,canActivate:[AuthGuard]},
-  {path: 'w2w-trans', component:W2wTransComponent,canActivate:[AuthGuard]},
-  {path: 'w2b-trans', component:W2bTransComponent,canActivate:[AuthGuard]},
-  {path: 'bankbalance', component:BankbalanceComponent,canActivate:[AuthGuard]},
-  {path: 'walletbalance', component:WalletbalanceComponent,canActivate:[AuthGuard]},
-  {path: 'cashdeposit', component:CashdepositComponent,canActivate:[AuthGuard]},
-  {path: 'cashwithdraw', component:CashwithdrawComponent,canActivate:[AuthGuard]},
-  {path: 'electric', component:ElectricComponent,canActivate:[AuthGuard]},
-  {path: 'dstv', component:DstvComponent,canActivate:[AuthGuard]},
-  {path: 'water', component:WaterComponent,canActivate:[AuthGuard]},
-  {path: 'traficpayment', component:TrafficpaymentComponent,canActivate:[AuthGuard]},
-  {path: 'schoolfee', component:SchoolfeeComponent,canActivate:[AuthGuard]},
-  {path: 'airlinesticket', component:ArilinesticketComponent,canActivate:[AuthGuard]},
-  {path: 'supermarket', component:SupermarketComponent,canActivate:[AuthGuard]},
-  {path: 'shops', component:ShopsComponent,canActivate:[AuthGuard]},
-  {path: 'recharge', component:RechargeComponent,canActivate:[AuthGuard]},
-  {path: 'forgetpassword', component:ForgetpasswordComponent,canActivate:[AuthGuard]},
-  {path: 'mainpage', component:MainpageComponent,canActivate:[AuthGuard]},
+  {path: 'cash-flow', component:CashFlowComponent, canActivate:[AuthGuard]},
+  {path: 'payment', component:PaymentComponent, canActivate:[AuthGuard]},
+  {path: 'transfer', component:TransferComponent, canActivate:[AuthGuard]},
+  {path: 'topup', component:TopupComponent, canActivate:[AuthGuard]},
+  {path: 'b2b-trans', component:B2bTransComponent, canActivate:[AuthGuard]},
+  {path: 'b2w-trans', component:B2wTransComponent, canActivate:[AuthGuard]},
+  {path: 'w2w-trans', component:W2wTransComponent, canActivate:[AuthGuard]},
+  {path: 'w2b-trans', component:W2bTransComponent, canActivate:[AuthGuard]},
+  {path: 'bankbalance', component:BankbalanceComponent, canActivate:[AuthGuard]},
+  {path: 'walletbalance', component:WalletbalanceComponent, canActivate:[AuthGuard]},
+  {path: 'cashdeposit', component:CashdepositComponent, canActivate:[AuthGuard]},
+  {path: 'cashwithdraw', component:CashwithdrawComponent, canActivate:[AuthGuard]},
+  {path: 'electric', component:ElectricComponent, canActivate:[AuthGuard]},
+  {path: 'dstv', component:DstvComponent, canActivate:[AuthGuard]},
+  {path: 'water', component:WaterComponent, canActivate:[AuthGuard]},
+  {path: 'traficpayment', component:TrafficpaymentComponent, canActivate:[AuthGuard]},
+  {path: 'schoolfee', component:SchoolfeeComponent, canActivate:[AuthGuard]},
+  {path: 'airlinesticket', component:ArilinesticketComponent, canActivate:[AuthGuard]},
+  {path: 'supermarket', component:SupermarketComponent, canActivate:[AuthGuard]},
+  {path: 'shops', component:ShopsComponent, canActivate:[AuthGuard]},
+  {path: 'recharge', component:RechargeComponent, canActivate:[AuthGuard]},
+  {path: 'forgetpassword', component:ForgetpasswordComponent, canActivate:[AuthGuard]},
+ // {path: 'mainpage', component:MainpageComponent},
   
   
   

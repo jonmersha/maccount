@@ -7,44 +7,31 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
     
-            
-            <div id="wrapper" class="toggled">
-                <!-- Sidebar -->
-                <div id="sidebar-wrapper">
-                    <ul class="sidebar-nav">
-                        <li class="sidebar-brand"> <a href="#"> Start Bootstrap </a> </li>
-                        <li> <a href="#">Dashboard</a> </li>
 
-                    </ul>
-                </div> <!-- /#sidebar-wrapper -->
-                <!-- Page Content -->
-                <div id="page-content-wrapper">
-                    <div class="container-fluid">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                    </div>
-                </div> <!-- /#page-content-wrapper -->
-            </div> <!-- /#wrapper -->
-            <!-- Bootstrap core JavaScript -->
-            <script src="js/jquery.min.js"></script>
-            <script src="js/bootstrap.bundle.min.js"></script> <!-- Menu Toggle Script -->
-            <script>
-              $(function(){
-                $("#menu-toggle").click(function(e) {
-                    e.preventDefault();
-                    $("#wrapper").toggleClass("toggled");
-                });
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <!-- *ngIf="authenticationService.IsAuthenticated" -->
+      <a class="navbar-brand" routerLink="/home">HulluPay</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarshullupay" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     
-                $(window).resize(function(e) {
-                  if($(window).width()<=768){
-                    $("#wrapper").removeClass("toggled");
-                  }else{
-                    $("#wrapper").addClass("toggled");
-                  }
-                });
-              });
-               
-            </script>
-       
-      </html>
+      <div class="collapse navbar-collapse" id="#navbarshullupay">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/transfer">Transfer</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>Cash Flow</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/payment">Payment</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>TopUp</a>
+          </li>
+        </ul>
+        
+      </div>
+    </nav>
+    
+    

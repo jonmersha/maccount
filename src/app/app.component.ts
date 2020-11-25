@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from './authentication/authentication.service';
+//import { AuthenticationService } from './authentication/authentication.service';
 import { LoginComponent } from 'src/app/login/login.component'
+import { LoginService } from './Services/LoginService/login.service';
 
 
 @Component({
@@ -13,13 +14,13 @@ export class AppComponent {
   
   
 
-  constructor(public authenticationService:AuthenticationService){
+  constructor(private login:LoginService){
 
   }
 
-  logout(){
-    this.authenticationService.logout();
-  }
+  // logout(){
+  //   this.login.logout();
+  // }
 
 
  

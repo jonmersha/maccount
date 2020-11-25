@@ -12,4 +12,11 @@ export class B2bTransComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  b2b_Submit(){
+    
+  }
+
+  onReset(){
+
+  }
 }

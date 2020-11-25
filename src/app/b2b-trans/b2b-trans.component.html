@@ -3,14 +3,41 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <!-- *ngIf="authenticationService.IsAuthenticated" -->
+    <a class="navbar-brand" routerLink="/home">HulluPay</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarshullupay" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="#navbarshullupay">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/transfer">Transfer</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>Cash Flow</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/payment">Payment</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>TopUp</a>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>
+  
 <section class="testimonial py-5" id="testimonial">
+    <br><br><br>
     <div class="container">
         <div class="row ">
             <div class="col-md-4 py-5 bg-primary text-white text-center ">
                 <div class=" ">
                     <div class="card-body">
                         <img src="./assets/images/image_2020-11-13_15-21-37.png" style="width:40%">
-                        <h2 class="py-3">Wallet to Bank Transfer</h2>
+                        <h2 class="py-3">Bank to Bank Transfer</h2>
                         <p>HuluPay system is one of the best applications to use!</p><br>
                         <p>Enjoy Using it!!!</p>
                     </div>
@@ -21,29 +48,28 @@
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                          <input id="pin" name="pin" placeholder="Insert PIN Code" class="form-control" required="required" type="text">
+                          <input id="pin" name="pin" placeholder="Insert PIN Code" class="form-control" required="required" type="password" pattern = "[0-9]">
                         </div>
-                        <div class="form-group col-md-6">
-                          <input id="bank account" name="bank account" placeholder="Sender bank account" class="form-control" required="required" type="text">
-                      </div>
                       </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="bank account" name="bank account" placeholder="Reciver bank account" class="form-control" required="required" type="text">
+                            <input id="bank account" name="bank account" placeholder="Reciver bank account" class="form-control" required="required" type="text" pattern = "[0-9]">
                         </div>
                         <div class="form-group col-md-6">
-                            <input id="amount" name="amount" placeholder="amount" class="form-control" required="required" type="text">
+                            <input id="amount" name="amount" placeholder="amount" class="form-control" required="required" type="text" pattern = "[0-9]">
                         </div>
                         <div class="form-group col-md-12">
-                                  <textarea id="comment" name="comment" cols="40" rows="5" class="form-control">Comment</textarea>
+                                  <textarea id="comment" placeholder="Description" name="comment" cols="40" rows="5" class="form-control"></textarea>
                         </div>
                     </div>
-                    <div class="form-row" class="row">
-                      <button type="button" class="btn btn-primary">Submit</button><hr>
-                      <button type="button" class="btn btn-primary">Cancel</button><hr>
-                      <button type="button" class="btn btn-primary">Print statement</button>
-                    </div><br>
-                                   
+                    <div class="text-center">
+                        <!-- <div><button class="btn_sign_up" (click)="cambiar_sign_up()">SIGN UP</button>&nbsp;&nbsp;&nbsp;
+                        <button class="btn_sign_up"  type="reset" (click)="onReset()">Cancel</button></div>
+                          </div> -->
+                      <!-- <button class="btn_b2btran" (click)="b2b_Submit()" class=btn btn-primary">Submit</button>&nbsp;&nbsp;&nbsp;
+                      <button class="btn_b2btran"  type="reset" (click)="onReset()" class="btn btn-primary">Cancel</button>
+                  -->
+                    </div><br> 
                 </form>
             </div>
         </div>

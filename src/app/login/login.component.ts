@@ -1,40 +1,115 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthenticationService } from '../authentication/authentication.service';
-import { SignInData } from '../model/signInData';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+//import { SignInData } from '../model/signInData';
 import { UpperCasePipe } from '@angular/common';
+import {LoginService} from '../Services/LoginService/login.service';
+import { from } from 'rxjs';
+import { MustMatch } from './MustMatch';
+import { SignUpServiceService } from '../Services/SignUpService/sign-up-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-
+export class LoginComponent{
+  username: string = '';
+  password: string = '';
+  textbox:string='';
+  // CustemData:
+  // {
+  //   'phoneNumber':String,
+  //   'userName':String ,
+  //   'password':String ,
+  //   'firstName':String ,
+  //   'middleName':String ,
+  //   'lastName':String ,
+  //   'maritalStatus':String ,
+  //   'gender':String ,
+  //   'motherFullName':String ,
+  //   'emailId':String ,
+  //   'birthDate': String
+  // }
+  registerForm: FormGroup;
+  submitted = false;
+  isUsernameValid: boolean = true;
+  
   isFormInvalid = false;
   areCredentialsInvalid =false;
-  constructor(private authenticationService: AuthenticationService) { }
-
-  ngOnInit(): void {
-  }
-
-  onSubmit(signInForm: NgForm) {
-    if (!signInForm.valid){
-      this.isFormInvalid = true;
-      this.areCredentialsInvalid = false;
-      return;
-
+  constructor(private loginService: LoginService,private formBuilder: FormBuilder, private signupservice:SignUpServiceService) { }
+   // convenience getter for easy access to form fields
+   get f() { return this.registerForm.controls; }
+   ngOnInit() 
+   {
+       this.registerForm = this.formBuilder.group({
+           nationality: ['', Validators.required],
+           username: ['', Validators.required],
+           firstName: ['', Validators.required],
+           middleName:['',Validators.required],
+           lastName: ['', Validators.required],
+           gender: ['', Validators.required],
+           maritalStatus: ['', Validators.required],
+           motherFullName:['', Validators.required],
+           // validates date format yyyy-mm-dd
+           dob: ['', [Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
+           email: ['', [Validators.required, Validators.email]],
+           phone:['',[Validators.required ]],
+           password: ['', [Validators.required, Validators.minLength(6)]],
+           confirmPassword: ['', Validators.required],
+           acceptTerms: [false, Validators.requiredTrue]
+       }, {
+           validator: MustMatch('password', 'confirmPassword')
+           
+       });
+      //    console.log(this.registerForm['email'] ); 
+ }
+  validateUsername(): void {
+    const pattern = RegExp(/^[\w-.]*$/);
+    if (pattern.test(this.username)) {
+      this.isUsernameValid = true;
+    } else {
+      this.isUsernameValid = false;
     }
-    this.checkCredentials(signInForm);
-    //console.log(signInForm.value);
-    const signInData = new SignInData(signInForm.value.email, signInForm.value.password);
-    this.authenticationService.authenticate(signInData)
   }
-  private checkCredentials(signInForm: NgForm){
-    const signInData = new SignInData(signInForm.value.email, signInForm.value.password);
-    if(!this.authenticationService.authenticate(signInData))
-    this.isFormInvalid=false;
-    this.areCredentialsInvalid = true;
+  onKey(event: any, type: string) {
+   
+    if (type === 'email' ) {
+      this.username = event.target.value;
+      this.validateUsername();
+    } else if (type === 'password') {
+      this.password = event.target.value;
+    } 
+    
   }
+  onSubmit() {
+    
+    if (this.isUsernameValid) 
+       this.loginService.login(this.username, this.password)
+        
+       else{
+       this.textbox="Please enter valid username and password";
+       }
+  }
+ 
+  sign_up()
+  {
+    
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
+
+    //  this.data=
+    //  alert();
+    // display form values on success
+    this.signupservice.SignUp(this.registerForm.value);
+
+  }
+  onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
+}
   cambiar_login() {
     document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";  
     document.getElementById('cont_form_login').style.display = "block";
@@ -48,6 +123,7 @@ export class LoginComponent implements OnInit {
 }
                       
   cambiar_sign_up() {
+   // window.location.href ='src\app\login\signUp.html';
     document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
     document.getElementById('cont_form_sign_up').style.display = "block";
     document.getElementById('cont_form_login').style.opacity = "0";
