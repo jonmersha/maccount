@@ -35,6 +35,7 @@ import { RechargeComponent } from './recharge/recharge.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AccountService } from './Services/account/account.service';
 
 
 
@@ -81,7 +82,7 @@ import { ReactiveFormsModule } from '@angular/forms';
    
 
     ],
-  providers: [],
+  providers: [AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

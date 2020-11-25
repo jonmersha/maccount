@@ -82,13 +82,14 @@ export class LoginComponent{
     
   }
   onSubmit() {
-    
-    if (this.isUsernameValid) 
-       this.loginService.login(this.username, this.password)
+    console.log('Loginpanched')
+    this.loginService.login(this.username, this.password)
+    // if (this.isUsernameValid) 
+    //    this.loginService.login(this.username, this.password)
         
-       else{
-       this.textbox="Please enter valid username and password";
-       }
+    //    else{
+    //    this.textbox="Please enter valid username and password";
+    //    }
   }
  
   sign_up()

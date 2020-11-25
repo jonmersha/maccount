@@ -36,31 +36,34 @@ export class LoginService{
   login(Username: string, Password: string): any
   {
    let rq={
-          'phoneNumber':Username ,
+          'phoneNumber': Username ,
           'password':   Password
           }
+          console.log(rq)
     this.http.post(this.url,  rq  ).subscribe({  next:data =>
     { 
-     
        if (data['userName']!=null)
        {
+         console.log(data['userName']);
         this.IsAuthenticated = true;
         this.router.navigateByUrl('home');
         return true;
        }
       else
       {
+        console.log('Login Failed')
+        console.log(data)
         this.IsAuthenticated= false;
         return false;
         
       } 
         
       },
-      // error: error => {
-      //     this.errorMessage = error.message;
-          //console.error('There was an error!', error);
-      //     this.noMatch="Invalid user or password"
-      // }
+      error: error => {
+          this.errorMessage = error.message;
+          console.error('There was an error!', error);
+          this.noMatch="Invalid user or password"
+      }
       
     });
     

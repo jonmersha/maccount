@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hulluPay-todolist"
+    }
+  },
+  "defaultProject": "hulluPay-todolist",
+  "cli": {
+    "analytics": "77ca4e23-0157-4b33-9ced-74fc1422fb32"
+  }
 }
