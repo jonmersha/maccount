@@ -7,6 +7,7 @@ import {LoginService} from '../Services/LoginService/login.service';
 import { from } from 'rxjs';
 import { MustMatch } from './MustMatch';
 import { SignUpServiceService } from '../Services/SignUpService/sign-up-service.service';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -36,7 +37,12 @@ export class LoginComponent{
   
   isFormInvalid = false;
   areCredentialsInvalid =false;
-  constructor(private loginService: LoginService,private formBuilder: FormBuilder, private signupservice:SignUpServiceService) { }
+  constructor(private loginService: LoginService,private formBuilder: FormBuilder, private signupservice:SignUpServiceService, public translate:TranslateService) { 
+    translate.addLangs(['en','አማ']);
+    translate.setDefaultLang('en');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|አማ/) ? browserLang : 'en');
+  }
    // convenience getter for easy access to form fields
    get f() { return this.registerForm.controls; }
    ngOnInit() 
@@ -149,6 +155,7 @@ export class LoginComponent{
       document.getElementById('cont_form_sign_up').style.display = "none";
       document.getElementById('cont_form_login').style.display = "none";
     },500);  
+    
       
   }	
 }

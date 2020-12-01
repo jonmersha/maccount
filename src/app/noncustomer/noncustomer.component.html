@@ -5,7 +5,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <!-- *ngIf="authenticationService.IsAuthenticated" -->
-    <a class="navbar-brand" routerLink="/home"> {{ 'B2BTRANSFER.home' | translate }}</a>
+    <a class="navbar-brand" routerLink="/home">  {{ 'NONCUSTOMERTRAN.home' | translate }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarshullupay" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,20 +13,20 @@
     <div class="collapse navbar-collapse" id="#navbarshullupay">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/transfer">{{ 'B2BTRANSFER.transfer' | translate }}</a>
+          <a class="nav-link" routerLink="/transfer">{{ 'NONCUSTOMERTRAN.transfer' | translate }}</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>{{ 'B2BTRANSFER.cashflow' | translate }}</a>
+          <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>{{ 'NONCUSTOMERTRAN.cashflow' | translate }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/payment">{{ 'B2BTRANSFER.payment' | translate }}</a>
+          <a class="nav-link" routerLink="/payment">{{ 'NONCUSTOMERTRAN.payment' | translate }}</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>{{ 'B2BTRANSFER.topup' | translate }}</a>
+          <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>{{ 'NONCUSTOMERTRAN.topup' | translate }}</a>
         </li>
       </ul>
       <label for="">
-        {{ 'B2BTRANSFER.SELECT' | translate }}
+        {{ 'NONCUSTOMERTRAN.SELECT' | translate }}
         <select #langselect (change)="translate.use(langselect.value)" >
           <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }} </option>
         </select>
@@ -34,6 +34,8 @@
     </div>
   </nav>
   
+
+
 <section class="testimonial py-5" id="testimonial">
     <br><br><br>
     <div class="container">
@@ -42,48 +44,54 @@
                 <div class=" ">
                     <div class="card-body">
                         <img src="./assets/images/image_2020-11-13_15-21-37.png" style="width:40%">
-                        <h2 class="py-3">{{ 'B2BTRANSFER.b2b-tran' | translate }}</h2>
-                        <p>{{ 'B2BTRANSFER.discription' | translate }}</p><br>
-                        <p>{{ 'B2BTRANSFER.enjoy' | translate }}</p>
+                        <h2 class="py-3">{{ 'NONCUSTOMERTRAN.noncustomer' | translate }}</h2>
+                        <p>{{ 'NONCUSTOMERTRAN.discription' | translate }}</p><br>
+                        <p>{{ 'NONCUSTOMERTRAN.enjoy' | translate }}</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-8 py-5 border">
-                <h4 class="pb-4">{{ 'B2BTRANSFER.requiredtofill' | translate }}</h4>
+                <h4 class="pb-4">{{ 'NONCUSTOMERTRAN.requiredtofill' | translate }}</h4>
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                          <input id="pin" name="pin" placeholder="{{ 'B2BTRANSFER.pincode' | translate }}" class="form-control" required="required" type="password" pattern = "[0-9]">
+                          <input id="pin" name="pin" placeholder="{{ 'B2WTRANSFER.pincode' | translate }}" class="form-control" required="required" type="password">
                         </div>
                       </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="bank account" name="bank account" placeholder="{{ 'B2BTRANSFER.reciveraccount' | translate }}" class="form-control" required="required" type="text" pattern = "[0-9]">
+                          <input id="phone number" name="phone number" placeholder="{{ 'B2WTRANSFER.recivermobile' | translate }}" class="form-control" required="required" type="text" >
                         </div>
                         <div class="form-group col-md-6">
-                          <button type="button" class="btn btn-primary" >{{ 'B2BTRANSFER.checkuser' | translate }}</button>
+                          <button type="button" class="btn btn-primary" >{{ 'NONCUSTOMERTRAN.checkuser' | translate }}</button>
                           <!-- (click)="checkUsers() -->
                         </div>
                          <!-- <div class="form-group col-md-12">
                         {{reInfo.customer_name}}
                       </div> -->
                         <div class="form-group col-md-6">
-                            <input id="amount" name="amount" placeholder="{{ 'B2BTRANSFER.amount' | translate }}" class="form-control" required="required" type="text" pattern = "[0-9]">
+                            <input id="amount" name="amount" placeholder="{{ 'NONCUSTOMERTRAN.amount' | translate }}" class="form-control" required="required" type="text">
                         </div>
                         <div class="form-group col-md-12">
-                                  <textarea id="comment" placeholder="{{ 'B2BTRANSFER.comment' | translate }}" name="comment" cols="40" rows="5" class="form-control"></textarea>
+                                  <textarea id="comment" name="comment" placeholder="{{ 'NONCUSTOMERTRAN.comment' | translate }}" cols="40" rows="5" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="text-center">
-
-                      <button type="button" class="btn btn-primary">{{ 'B2BTRANSFER.b2bsubmit' | translate }}</button>&nbsp;&nbsp;&nbsp;
-                      <button type="button" class="btn btn-primary">{{ 'B2BTRANSFER.b2bcancel' | translate }}</button>
-
-                    </div><br> 
+                        <!-- <div><button class="btn_sign_up" (click)="cambiar_sign_up()">SIGN UP</button>&nbsp;&nbsp;&nbsp;
+                        <button class="btn_sign_up"  type="reset" (click)="onReset()">Cancel</button></div>
+                          </div> -->
+                      <button type="button" class="btn btn-primary">{{ 'NONCUSTOMERTRAN.noncustomersubmit' | translate }}</button>&nbsp;&nbsp;&nbsp;
+                      <button type="button" class="btn btn-primary">{{ 'NONCUSTOMERTRAN.noncustomercancel' | translate }}</button>
+                 
+                    </div><br>
+                                   
                 </form>
             </div>
         </div>
     </div>
 </section>
+
+
+
 
 

@@ -5,7 +5,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <!-- *ngIf="authenticationService.IsAuthenticated" -->
-    <a class="navbar-brand" routerLink="/home">HulluPay</a>
+    <a class="navbar-brand" routerLink="/home"> {{ 'W2WTRANSFER.home' | translate }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarshullupay" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,19 +13,24 @@
     <div class="collapse navbar-collapse" id="#navbarshullupay">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/transfer">Transfer</a>
+          <a class="nav-link" routerLink="/transfer">{{ 'W2WTRANSFER.transfer' | translate }}</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>Cash Flow</a>
+          <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>{{ 'W2WTRANSFER.cashflow' | translate }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/payment">Payment</a>
+          <a class="nav-link" routerLink="/payment">{{ 'W2WTRANSFER.payment' | translate }}</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>TopUp</a>
+          <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>{{ 'W2WTRANSFER.topup' | translate }}</a>
         </li>
       </ul>
-      
+      <label for="">
+        {{ 'W2WTRANSFER.SELECT' | translate }}
+        <select #langselect (change)="translate.use(langselect.value)" >
+          <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }} </option>
+        </select>
+      </label>      
     </div>
   </nav>
   
@@ -38,25 +43,39 @@
                 <div class=" ">
                     <div class="card-body">
                         <img src="./assets/images/image_2020-11-13_15-21-37.png" style="width:40%">
-                        <h2 class="py-3">Wallet to Wallet Transfer</h2>
-                        <p>HuluPay system is one of the best applications to use!</p><br>
-                        <p>Enjoy Using it!!!</p>
+                        <h2 class="py-3">{{ 'W2WTRANSFER.w2w-tran' | translate }}</h2>
+                        <p>{{ 'W2WTRANSFER.discription' | translate }}</p><br>
+                        <p>{{ 'W2WTRANSFER.enjoy' | translate }}</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-8 py-5 border">
-                <h4 class="pb-4">Please fill required fields</h4>
+                <h4 class="pb-4">{{ 'W2WTRANSFER.requiredtofill' | translate }}</h4>
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-6">
+<<<<<<< HEAD
+                          <input id="pin" name="pin" placeholder="{{ 'W2WTRANSFER.pincode' | translate }}" class="form-control" required="required" type="password" pattern = "[0-9]">
+=======
                           <input id="pin" name="pin" placeholder="Insert Your Password" class="form-control" required="required" type="password" pattern = "[0-9]">
+>>>>>>> 97e39707b5da1401f0714cd9d8670726e9062066
                         </div>
                       </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input id="phone number" name="phone number" placeholder="Reciver Mobile No." class="form-control" required="required" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                            <input id="phone number" name="phone number" placeholder="{{ 'W2WTRANSFER.recivermobile' | translate }}" class="form-control" required="required" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
                         </div>
                         <div class="form-group col-md-6">
+<<<<<<< HEAD
+                          <button type="button" class="btn btn-primary">{{ 'W2WTRANSFER.checkuser' | translate }}</button>
+                          <!-- (click)="checkUsers() -->
+                      </div>
+                      <!-- <div class="form-group col-md-12">
+                        {{reInfo.customer_name}}
+                      </div> -->
+                        <div class="form-group col-md-6">
+                          <input id="amount" name="amount" placeholder="{{ 'W2WTRANSFER.amount' | translate }}" class="form-control" required="required" type="text" pattern = "[0-9]">
+=======
                         <button type="button" class="btn btn-primary" (click)="ckeckUsers()">CheckUser</button>
                         </div>
                         <div class="form-group col-md-12">
@@ -64,17 +83,18 @@
                         </div>
                         <div class="form-group col-md-6">
                           <input id="amount" name="amount" placeholder="amount" class="form-control" required="required" type="text" pattern = "[0-9]">
+>>>>>>> 97e39707b5da1401f0714cd9d8670726e9062066
                       </div>
                         <div class="form-group col-md-12">
-                                  <textarea id="comment" name="comment" placeholder="Description" cols="40" rows="5" class="form-control"></textarea>
+                                  <textarea id="comment" name="comment" placeholder="{{ 'W2WTRANSFER.comment' | translate }}" cols="40" rows="5" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="text-center">
                         <!-- <div><button class="btn_sign_up" (click)="cambiar_sign_up()">SIGN UP</button>&nbsp;&nbsp;&nbsp;
                         <button class="btn_sign_up"  type="reset" (click)="onReset()">Cancel</button></div>
                           </div> -->
-                      <button type="button" class="btn btn-primary">Submit</button>&nbsp;&nbsp;&nbsp;
-                      <button type="button" class="btn btn-primary">Cancel</button>
+                      <button type="button" class="btn btn-primary">{{ 'W2WTRANSFER.w2wsubmit' | translate }}</button>&nbsp;&nbsp;&nbsp;
+                      <button type="button" class="btn btn-primary">{{ 'W2WTRANSFER.w2wcancel' | translate }}</button>
                  
                     </div><br>
                                    

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-b2w-trans',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class B2wTransComponent implements OnInit {
 
-  constructor() { }
+  constructor(public translate:TranslateService){
+    translate.addLangs(['en','አማ']);
+    translate.setDefaultLang('en');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|አማ/) ? browserLang : 'en');
+
+}
 
   ngOnInit(): void {
   }

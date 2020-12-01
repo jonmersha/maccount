@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-
 @Component({
-  selector: 'app-payment',
-  templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.css']
+  selector: 'app-noncustomer',
+  templateUrl: './noncustomer.component.html',
+  styleUrls: ['./noncustomer.component.css']
 })
-export class PaymentComponent implements OnInit {
+export class NoncustomerComponent implements OnInit {
 
-  constructor( public translate:TranslateService){
+  constructor(public translate:TranslateService){
     translate.addLangs(['en','አማ']);
     translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();

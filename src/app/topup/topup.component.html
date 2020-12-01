@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <!-- *ngIf="authenticationService.IsAuthenticated" -->
-  <a class="navbar-brand" routerLink="/home">HulluPay</a>
+  <a class="navbar-brand" routerLink="/home"> {{ 'TOPUP.home' | translate }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarshullupay" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,37 +8,42 @@
   <div class="collapse navbar-collapse" id="#navbarshullupay">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/transfer">Transfer</a>
+        <a class="nav-link" routerLink="/transfer">{{ 'TOPUP.transfer' | translate }}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>Cash Flow</a>
+        <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>{{ 'TOPUP.cashflow' | translate }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/payment">Payment</a>
+        <a class="nav-link" routerLink="/payment">{{ 'TOPUP.payment' | translate }}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>TopUp</a>
+        <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>{{ 'TOPUP.topup' | translate }}</a>
       </li>
     </ul>
-    
+    <label for="">
+      {{ 'TOPUP.SELECT' | translate }}
+      <select #langselect (change)="translate.use(langselect.value)" >
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }} </option>
+      </select>
+    </label>    
   </div>
 </nav>
 
 
 <div class="container" style="width: 40%">
     <div class="hullupay-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"><br><br>
-        <h1 class="display-4">TopUp</h1>
-        <p class="lead">See all Activities Here</p>
+        <h1 class="display-4"> {{ 'TOPUP.topup' | translate }}</h1>
+        <p class="lead">{{ 'TOPUP.seeactivity' | translate }}</p>
       </div>
       
       <div class="container">
         <div class="card-deck mb-3 text-center">
           <div class="card mb-4 shadow-sm">
             <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Top Up</h4>
+              <h4 class="my-0 font-weight-normal">{{ 'TOPUP.topup' | translate }}</h4>
             </div>
             <div class="card-body">
-              <a href="src/app/w2w-trans/w2w-trans" routerLink="/w2w-trans" class="btn btn-lg btn-block btn-primary" role="button">Recharge</a>
+              <a href="src/app/w2w-trans/w2w-trans" routerLink="/w2w-trans" class="btn btn-lg btn-block btn-primary" role="button">{{ 'TOPUP.recharge' | translate }}</a>
             </div>
           </div>
         </div>

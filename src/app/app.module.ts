@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoginComponent } from 'src/app/login/login.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { CashFlowComponent } from './cash-flow/cash-flow.component';
@@ -22,7 +22,6 @@ import { HullupaybankComponent } from './hullupaybank/hullupaybank.component';
 import { CashdepositComponent } from './cashdeposit/cashdeposit.component';
 import { CashwithdrawComponent } from './cashwithdraw/cashwithdraw.component';
 import { WalletbalanceComponent } from './walletbalance/walletbalance.component';
-import { BankbalanceComponent } from './bankbalance/bankbalance.component';
 import { SupermarketComponent } from './supermarket/supermarket.component';
 import { ElectricComponent } from './electric/electric.component';
 import { DstvComponent } from './dstv/dstv.component';
@@ -37,6 +36,15 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AccountService } from './Services/account/account.service';
 
+//importing ngx translate module
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import {  TranslateHttpLoader }from '@ngx-translate/http-loader';
+import { NoncustomerComponent } from './noncustomer/noncustomer.component';
+//import { HttpClientModule,HttpClient }from '@angular/common/http';
+
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -56,7 +64,6 @@ import { AccountService } from './Services/account/account.service';
     CashdepositComponent,
     CashwithdrawComponent,
     WalletbalanceComponent,
-    BankbalanceComponent,
     SupermarketComponent,
     ElectricComponent,
     DstvComponent,
@@ -68,6 +75,7 @@ import { AccountService } from './Services/account/account.service';
     RechargeComponent,
     ForgetpasswordComponent,
     MainpageComponent,
+    NoncustomerComponent,
     
     
     
@@ -79,6 +87,17 @@ import { AccountService } from './Services/account/account.service';
     HttpClientModule,
     BrowserModule,
     ReactiveFormsModule,
+    //import them in here
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide:TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps:[HttpClient]
+      },
+      defaultLanguage: 'en',
+    })
+    
    
 
     ],

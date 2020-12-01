@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <!-- *ngIf="authenticationService.IsAuthenticated" -->
-  <a class="navbar-brand" routerLink="/home">HulluPay</a>
+  <a class="navbar-brand" routerLink="/home">{{ 'TRANSFER.home' | translate }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarshullupay" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,93 +8,98 @@
   <div class="collapse navbar-collapse" id="#navbarshullupay">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/transfer">Transfer</a>
+        <a class="nav-link" routerLink="/transfer">{{ 'TRANSFER.transfer' | translate }}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>Cash Flow</a>
+        <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>{{ 'TRANSFER.cashflow' | translate }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/payment">Payment</a>
+        <a class="nav-link" routerLink="/payment">{{ 'TRANSFER.payment' | translate }}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>TopUp</a>
+        <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>{{ 'TRANSFER.topup' | translate }}</a>
       </li>
     </ul>
-    
+    <label for="">
+      {{ 'TRANSFER.SELECT' | translate }}
+      <select #langselect (change)="translate.use(langselect.value)" >
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }} </option>
+      </select>
+    </label>
   </div>
 </nav>
 
 <br><br><br>
 <div class="container">
     <div class="hullupay-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Fund Transfer</h1>
-        <p class="lead">See all Activities Here</p>
+        <h1 class="display-4">{{ 'TRANSFER.fundtransfer' | translate }}</h1>
+        <p class="lead">{{ 'TRANSFER.seeactivity' | translate }}</p>
       </div>
       
       <div class="container">
         <div class="card-deck mb-3 text-center">
           <div class="card mb-4 shadow-sm">
             <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Wallet to Wallet</h4>
+              <h4 class="my-0 font-weight-normal">{{ 'TRANSFER.w2w-top-tran' | translate }}</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">ETB0 <small class="text-muted">/ mo</small></h1>
               <ul class="list-unstyled mt-3 mb-4">
-                <li>Wallet to Wallet</li>
+                <li>{{ 'TRANSFER.w2w-mid-tran' | translate }}</li>
               </ul>
-              <a href="src/app/w2w-trans/w2w-trans" routerLink="/w2w-trans" class="btn btn-lg btn-block btn-primary" role="button">Wallet to Wallet</a>
+              <a href="src/app/w2w-trans/w2w-trans" routerLink="/w2w-trans" class="btn btn-lg btn-block btn-primary" role="button">{{ 'TRANSFER.w2w-bot-tran' | translate }}</a>
             </div>
           </div>
        
           <div class="card mb-4 shadow-sm">
             <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Wallet to Bank</h4>
+              <h4 class="my-0 font-weight-normal">{{ 'TRANSFER.w2b-top-tran' | translate }}</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">ETB15 <small class="text-muted">/ mo</small></h1>
               <ul class="list-unstyled mt-3 mb-4">
                 
-                <li>Wallet to Bank</li>
+                <li>{{ 'TRANSFER.w2b-mid-tran' | translate }}</li>
               </ul>
-              <a href="src/app/w2b-trans/w2b-trans" routerLink="/w2b-trans" class="btn btn-lg btn-block btn-primary" role="button">Wallet to Bank</a>
+              <a href="src/app/w2b-trans/w2b-trans" routerLink="/w2b-trans" class="btn btn-lg btn-block btn-primary" role="button">{{ 'TRANSFER.w2b-bot-tran' | translate }}</a>
             </div>
           </div>
           <div class="card mb-4 shadow-sm">
             <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Bank to <br>Bank</h4>
+              <h4 class="my-0 font-weight-normal">{{ 'TRANSFER.b2b-top-tran' | translate }}</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">ETB29 <small class="text-muted">/ mo</small></h1>
               <ul class="list-unstyled mt-3 mb-4">
                 
-                <li>Bank to Bank</li>
+                <li>{{ 'TRANSFER.b2b-mid-tran' | translate }}</li>
               </ul>
-              <a href="src/app/b2b-trans/b2b-trans" routerLink="/b2b-trans" class="btn btn-lg btn-block btn-primary" role="button">Bank to Bank</a>
+              <a href="src/app/b2b-trans/b2b-trans" routerLink="/b2b-trans" class="btn btn-lg btn-block btn-primary" role="button">{{ 'TRANSFER.b2b-bot-tran'| translate }}</a>
             </div>
           </div><br>
           <div class="card mb-4 shadow-sm">
             <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Bank to Wallet</h4>
+              <h4 class="my-0 font-weight-normal">{{ 'TRANSFER.b2w-top-tran' | translate }}</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">ETB29 <small class="text-muted">/ mo</small></h1>
               <ul class="list-unstyled mt-3 mb-4">
                 
-                <li>Bank to Wallet</li>
+                <li>{{ 'TRANSFER.b2w-mid-tran' | translate }}</li>
               </ul>
-              <a href="src/app/b2w-trans/b2w-trans" routerLink="/b2w-trans" class="btn btn-lg btn-block btn-primary" role="button">Bank to Wallet</a>
+              <a href="src/app/b2w-trans/b2w-trans" routerLink="/b2w-trans" class="btn btn-lg btn-block btn-primary" role="button">{{ 'TRANSFER.b2w-bot-tran' | translate }}</a>
             </div>
           </div>
           <div class="card mb-4 shadow-sm">
             <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Non Customer</h4>
+              <h4 class="my-0 font-weight-normal">{{ 'TRANSFER.noncustomer-top' | translate }}</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">ETB0 <small class="text-muted">/ mo</small></h1>
               <ul class="list-unstyled mt-3 mb-4">
-                <li>Non Customer</li>
+                <li>{{ 'TRANSFER.noncustomer-mid' | translate }}</li>
               </ul>
-              <a href="src/app/w2w-trans/w2w-trans" routerLink="/w2w-trans" class="btn btn-lg btn-block btn-primary" role="button">Wallet to Wallet</a>
+              <a href="src/app/w2w-trans/noncustomer" routerLink="/noncustomer" class="btn btn-lg btn-block btn-primary" role="button">{{ 'TRANSFER.noncustomer-bot' | translate }}</a>
             </div>
           </div>
         </div>

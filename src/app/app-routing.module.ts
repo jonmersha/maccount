@@ -13,7 +13,7 @@ import { B2bTransComponent } from './b2b-trans/b2b-trans.component';
 import { B2wTransComponent } from './b2w-trans/b2w-trans.component';
 import { W2wTransComponent } from './w2w-trans/w2w-trans.component';
 import { W2bTransComponent } from './w2b-trans/w2b-trans.component';
-import { BankbalanceComponent } from './bankbalance/bankbalance.component';
+//import { BankbalanceComponent } from './bankbalance/bankbalance.component';
 import { WalletbalanceComponent } from './walletbalance/walletbalance.component';
 import { CashdepositComponent } from './cashdeposit/cashdeposit.component';
 import { CashwithdrawComponent } from './cashwithdraw/cashwithdraw.component';
@@ -27,6 +27,7 @@ import { ArilinesticketComponent } from './arilinesticket/arilinesticket.compone
 import { ShopsComponent } from './shops/shops.component';
 import { RechargeComponent } from './recharge/recharge.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { NoncustomerComponent } from './noncustomer/noncustomer.component';
 //import { MainpageComponent } from './mainpage/mainpage.component';
 
 
@@ -41,7 +42,7 @@ const routes: Routes = [
   {path: 'b2w-trans', component:B2wTransComponent, canActivate:[AuthGuard]},
   {path: 'w2w-trans', component:W2wTransComponent, canActivate:[AuthGuard]},
   {path: 'w2b-trans', component:W2bTransComponent, canActivate:[AuthGuard]},
-  {path: 'bankbalance', component:BankbalanceComponent, canActivate:[AuthGuard]},
+  //{path: 'bankbalance', component:BankbalanceComponent, canActivate:[AuthGuard]},
   {path: 'walletbalance', component:WalletbalanceComponent, canActivate:[AuthGuard]},
   {path: 'cashdeposit', component:CashdepositComponent, canActivate:[AuthGuard]},
   {path: 'cashwithdraw', component:CashwithdrawComponent, canActivate:[AuthGuard]},
@@ -55,13 +56,12 @@ const routes: Routes = [
   {path: 'shops', component:ShopsComponent, canActivate:[AuthGuard]},
   {path: 'recharge', component:RechargeComponent, canActivate:[AuthGuard]},
   {path: 'forgetpassword', component:ForgetpasswordComponent, canActivate:[AuthGuard]},
- // {path: 'mainpage', component:MainpageComponent},
-  
-  
-  
-  
- 
+  {path: 'noncustomer', component:NoncustomerComponent, canActivate:[AuthGuard]},
+
+  // { path: '', redirectTo: 'en', pathMatch: 'full' },
+  // { data: { source: "en.json" },}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

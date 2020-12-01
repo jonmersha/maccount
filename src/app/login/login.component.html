@@ -7,16 +7,22 @@
         <div class="cont_info_log_sign_up">
           <div class="col_md_login">
             <div class="cont_ba_opcitiy">
-              <h2>LOGIN</h2>
-              <p>እንኳን ወደ ለሁሉ ክፍያ በሰላም መጡ</p>
-              <button class="btn_login" (click)="cambiar_login()">LOGIN</button>
+              <h2> {{ 'LOGIN.h2' | translate }}</h2>
+              <p>{{ 'LOGIN.welcome' | translate }}</p>
+              <button class="btn_login" (click)="cambiar_login()">{{ 'LOGIN.h2' | translate }}</button>
             </div>
+            <label for="">
+              {{ 'LOGIN.SELECT' | translate }}
+              <select #langselect (change)="translate.use(langselect.value)" >
+                <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }} </option>
+              </select>
+            </label>
           </div>
           <div class="col_md_sign_up">
             <div class="cont_ba_opcitiy">
-              <h2>SIGN UP</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <button class="btn_sign_up" (click)="cambiar_sign_up()">SIGN UP</button>
+              <h2>{{ 'LOGIN.signup' | translate }}</h2>
+              <p>{{ 'LOGIN.signup-place' | translate }}</p>
+              <button class="btn_sign_up" (click)="cambiar_sign_up()">{{ 'LOGIN.signup' | translate }}</button>
             </div>
           </div>
         </div>
@@ -27,14 +33,14 @@
          <div class="cont_img_back_"> <img src="./../assets/images/1.jpg" alt="" /> </div>
          <div id="cont_form_login"> 
               <a href="#" (click)="ocultar_login_sign_up()" ><i class="fa fa-window-close" aria-hidden="true"></i></a>
-              <h2>LOGIN</h2>
+              <h2>{{ 'LOGIN.h2' | translate }}</h2>
               <input  type="email" name = "email"  placeholder="Email" (keyup)="onKey($event, 'email')"  (change)="onKey($event, 'email')"  required autofocus  />
               <input type="password" name="password" placeholder="Password" (keyup)="onKey($event, 'password')" (change)="onKey($event, 'password')" required  />
               
-              <button class="btn_login" (click)="onSubmit()"  type="submit">LOGIN</button>
+              <button class="btn_login" (click)="onSubmit()"  type="submit">{{ 'LOGIN.h2' | translate }}</button>    
          </div>
           <div id="cont_form_sign_up"> <a href="#" (click)="ocultar_login_sign_up()"><i class="fa fa-window-close" aria-hidden="true"></i></a>
-            <h2>SIGN UP</h2>
+            <h2>{{ 'LOGIN.signup' | translate }}</h2>
               <!-- main app container -->
 <div class="card m-3">
 
@@ -42,7 +48,7 @@
       <form [formGroup]="registerForm" (ngSubmit)="sign_up()">
           <div class="form-row">
               <div class="form-group col">
-                  <label>Nationality</label>
+                  <label>{{ 'LOGIN.nationality' | translate }}</label>
                   <select formControlName="nationality" class="form-control">
                      <option value="">select one</option>
                     <option value="afghan">Afghan</option>
@@ -120,28 +126,28 @@
                   </div>
               </div>
               <div class="form-group col-5">
-                <label>User Name</label>
+                <label>{{ 'LOGIN.username' | translate }}</label>
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                     <div *ngIf="f.username.errors.required">User Name is required</div>
                 </div>
               </div>
               <div class="form-group col-5">
-                  <label>First Name</label>
+                  <label>{{ 'LOGIN.firstname' | translate }}</label>
                   <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                   <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                       <div *ngIf="f.firstName.errors.required">First Name is required</div>
                   </div>
               </div>
               <div class="form-group col-5">
-                  <label>Middle Name</label>
+                  <label>{{ 'LOGIN.middlename' | translate }}</label>
                   <input type="text" formControlName="middleName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
                   <div *ngIf="submitted && f.middleName.errors" class="invalid-feedback">
                       <div *ngIf="f.middleName.errors.required">Middle Name is required</div>
                   </div>
               </div>
               <div class="form-group col-5">
-                <label>Last Name</label>
+                <label>{{ 'LOGIN.lastname' | translate }}</label>
                 <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
                 <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                     <div *ngIf="f.lastName.errors.required">Last Name is required</div>
@@ -149,7 +155,7 @@
             </div>
             <div class="form-row">
               <div class="form-group col">
-                  <label>Marital Status</label>
+                  <label>{{ 'LOGIN.maritalstatus' | translate }}</label>
                   <select formControlName="maritalStatus" class="form-control">
                     <option value="">select one</option>
                     <option value="Married">Married</option>
@@ -162,7 +168,7 @@
             </div>
             
             <div class="form-group col-5">
-              <label>Mother Full Name</label>
+              <label>{{ 'LOGIN.mothername' | translate }}</label>
               <input type="text" formControlName="motherFullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.motherFullName.errors }" />
               <div *ngIf="submitted && f.motherFullName.errors" class="invalid-feedback">
                   <div *ngIf="f.motherFullName.errors.required">Mother Full Name is required</div>
@@ -171,7 +177,7 @@
         
           <div class="form-row">
             <div class="form-group col">
-                <label>Gender</label>
+                <label>{{ 'LOGIN.gender' | translate }}</label>
                 <select formControlName="gender" class="form-control">
                   <option value="">select one</option>
                   <option value="Male">Male</option>
@@ -183,7 +189,7 @@
                 </div>
               </div>
               <div class="form-group col">
-                  <label>Date of Birth</label>
+                  <label>{{ 'LOGIN.birthday' | translate }}</label>
                   <input type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
                   <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
                       <div *ngIf="f.dob.errors.required">Date of Birth is required</div>
@@ -193,7 +199,7 @@
                   </div>
               <div class="form-row">
               <div class="form-group col">
-                  <label>Email</label>
+                  <label>{{ 'LOGIN.email' | translate }}</label>
                   <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
                   <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                       <div *ngIf="f.email.errors.required">Email is required</div>
@@ -201,7 +207,7 @@
                   </div>
               </div>
               <div class="form-group col">
-                <label>Phone Number</label>
+                <label>{{ 'LOGIN.phonenumber' | translate }}</label>
                 <input type="tel" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
                 <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
                     <div *ngIf="f.phone.errors.required">Phone is required</div>
@@ -212,7 +218,7 @@
           <div class="form-row">
              
               <div class="form-group col">
-                  <label>Password</label>
+                  <label>{{ 'LOGIN.password' | translate }}</label>
                   <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                   <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                       <div *ngIf="f.password.errors.required">Password is required</div>
@@ -220,7 +226,7 @@
                   </div>
               </div>
               <div class="form-group col">
-                  <label>Confirm Password</label>
+                  <label>{{ 'LOGIN.comfirmpas' | translate }}</label>
                   <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
                   <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
                       <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
@@ -230,12 +236,12 @@
           </div>
           <div class="form-group form-check">
               <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
-              <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+              <label for="acceptTerms" class="form-check-label">{{ 'LOGIN.acceptance' | translate }}</label>
               <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
           </div>
           <div class="text-center">
-            <div><button class="btn_sign_up" (click)="cambiar_sign_up()">SIGN UP</button>&nbsp;&nbsp;&nbsp;
-            <button class="btn_sign_up"  type="reset" (click)="onReset()">Cancel</button></div>
+            <div><button class="btn_sign_up" (click)="cambiar_sign_up()">{{ 'LOGIN.signup' | translate }}</button>&nbsp;&nbsp;&nbsp;
+            <button class="btn_sign_up"  type="reset" (click)="onReset()">{{ 'LOGIN.cancel' | translate }}</button></div>
           </div>
       </form>
   </div>

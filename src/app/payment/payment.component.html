@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <!-- *ngIf="authenticationService.IsAuthenticated" -->
-  <a class="navbar-brand" routerLink="/home">HulluPay</a>
+  <a class="navbar-brand" routerLink="/home"> {{ 'PAYMENT.home' | translate }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarshullupay" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,18 +8,24 @@
   <div class="collapse navbar-collapse" id="#navbarshullupay">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/transfer">Transfer</a>
+        <a class="nav-link" routerLink="/transfer">{{ 'PAYMENT.transfer' | translate }}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>Cash Flow</a>
+        <a class="nav-link" routerLink="/cash-flow"><span class="sr-only">(current)</span>{{ 'PAYMENT.cashflow' | translate }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/payment">Payment</a>
+        <a class="nav-link" routerLink="/payment">{{ 'PAYMENT.payment' | translate }}</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>TopUp</a>
+        <a class="nav-link" routerLink="/topup"><span class="sr-only">(current)</span>{{ 'PAYMENT.topup' | translate }}</a>
       </li>
     </ul>
+    <label for="">
+      {{ 'PAYMENT.SELECT' | translate }}
+      <select #langselect (change)="translate.use(langselect.value)" >
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }} </option>
+      </select>
+    </label>
     
   </div>
 </nav>
@@ -27,37 +33,37 @@
 
 <div class="container">
     <div class="hullupay-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"><br><br>
-        <h1 class="display-4">Payments</h1>
-        <p class="lead">See all Activities Here</p>
+        <h1 class="display-4">{{ 'PAYMENT.payment' | translate }}</h1>
+        <p class="lead">{{ 'PAYMENT.seeactivity' | translate }}</p>
       </div>
       
       <div class="container" style="width: 60%; height: 20%;">
         <div class="card-deck mb-3 text-center">
           <div class="card mb-4 shadow-sm">
             <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Utility/Bill Payment</h4>
+              <h4 class="my-0 font-weight-normal">{{ 'PAYMENT.utilitypay' | translate }}</h4>
             </div>
             <div class="card-body">
               
               <ul class="list-unstyled mt-3 mb-4">
-                <a href="/src/app/electric/electric" routerLink="/electric" class="btn btn-lg btn-block btn-primary" role="button">Electric</a><br>
-                <a href="/src/app/dstv/dstv" routerLink="/dstv" class="btn btn-lg btn-block btn-primary" role="button">DSTV</a><br>
-                <a href="/src/app/water/water" routerLink="/water" class="btn btn-lg btn-block btn-primary" role="button">Water</a><br>
-                <a href="/src/app/traficpayment/traficpayment" routerLink="/traficpayment" class="btn btn-lg btn-block btn-primary" role="button">Traffic payment</a><br>
-                <a href="/src/app/schoolfee/schoolfee" routerLink="/schoolfee" class="btn btn-lg btn-block btn-primary" role="button">School fee</a><br>
-                <a href="/src/app/airlinesticket/airlinesticket" routerLink="/airlinesticket" class="btn btn-lg btn-block btn-primary" role="button">Airlines Ticket</a><br>
+                <a href="/src/app/electric/electric" routerLink="/electric" class="btn btn-lg btn-block btn-primary" role="button">{{ 'PAYMENT.electric' | translate }}</a><br>
+                <a href="/src/app/dstv/dstv" routerLink="/dstv" class="btn btn-lg btn-block btn-primary" role="button">{{ 'PAYMENT.dstv' | translate }}</a><br>
+                <a href="/src/app/water/water" routerLink="/water" class="btn btn-lg btn-block btn-primary" role="button">{{ 'PAYMENT.water' | translate }}</a><br>
+                <a href="/src/app/traficpayment/traficpayment" routerLink="/traficpayment" class="btn btn-lg btn-block btn-primary" role="button">{{ 'PAYMENT.trafic' | translate }}</a><br>
+                <a href="/src/app/schoolfee/schoolfee" routerLink="/schoolfee" class="btn btn-lg btn-block btn-primary" role="button">{{ 'PAYMENT.schoolfee' | translate }}</a><br>
+                <a href="/src/app/airlinesticket/airlinesticket" routerLink="/airlinesticket" class="btn btn-lg btn-block btn-primary" role="button">{{ 'PAYMENT.airlines' | translate }}</a><br>
               </ul>
             </div>
           </div><br>
           <div class="card mb-4 shadow-sm" style="height: 30%;">
             <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Merchant Payments</h4>
+              <h4 class="my-0 font-weight-normal">{{ 'PAYMENT.merchantpay' | translate }}</h4>
             </div>
             <div class="card-body">
               
               <ul class="list-unstyled mt-3 mb-4">
-                <a href="/src/app/supermarket/supermarket" routerLink="/supermarket" class="btn btn-lg btn-block btn-primary" role="button">Supermarket</a><br>
-                <a href="/src/app/shops/shops" routerLink="/shops" class="btn btn-lg btn-block btn-primary" role="button">Shops</a><br>
+                <a href="/src/app/supermarket/supermarket" routerLink="/supermarket" class="btn btn-lg btn-block btn-primary" role="button">{{ 'PAYMENT.supermarket' | translate }}</a><br>
+                <a href="/src/app/shops/shops" routerLink="/shops" class="btn btn-lg btn-block btn-primary" role="button">{{ 'PAYMENT.shops' | translate }}</a><br>
 
               </ul>
             </div>
